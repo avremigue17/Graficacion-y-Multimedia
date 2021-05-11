@@ -45,9 +45,9 @@ class Ball{
     if(this.x - this.d/2 <= 0 || this.x + this.d/2 >= width)
     {	
     	if(this.x - this.d/2 <= 0)
-    		p2.score+=1;
+    		this.p2.score+=1;
     	else
-    		p1.score+=1;
+    		this.p1.score+=1;
     	this.x = width/2;
     	this.y = height/2;
     	this.stepY = 0;

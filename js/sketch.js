@@ -1,14 +1,14 @@
-var p1;
-var p2;
+var player1;
+var player2;
 var ball;
 var speed = 10;
 var enter = true;
 
 function setup(){
 	createCanvas(windowWidth, windowHeight);
-	p1 = new Racket(0, height/2-50);
-	p2 = new Racket(width-20, height/2-50);
-	ball = new Ball(width/2, height/2, 20, speed, p1, p2);
+	player1 = new Racket(0, height/2-50);
+	player2 = new Racket(width-20, height/2-50);
+	ball = new Ball(width/2, height/2, 20, speed, player1, player2);
 }
 
 function draw(){
@@ -31,14 +31,14 @@ function draw(){
 			textAlign(CENTER, TOP);
 			fill("white");
 			stroke("white");
-			text(`${p1.score}  ${p2.score}`, width/2, 0);
+			text(`${player1.score}  ${player2.score}`, width/2, 0);
 			line(width/2, 0, width/2, height);
 		pop();
-		p1.display();
-		p2.display();
+		player1.display();
+		player2.display();
 		ball.display();
-		ball.hasCollision(p1.x, p1.y, p1.w, p1.h, p1.direction);
-		ball.hasCollision(p2.x, p2.y, p2.w, p2.h, p2.direction);
+		ball.hasCollision(player1.x, player1.y, player1.w, player1.h, player1.direction);
+		ball.hasCollision(player2.x, player2.y, player2.w, player2.h, player2.direction);
 		move();
 	}
 }
@@ -51,12 +51,12 @@ function keyPressed(){
 
 function move(){
 	if(keyIsDown(87))
-		p1.move(-speed);
+		player1.move(-speed);
 	else if(keyIsDown(83))
-		p1.move(speed);
+		player1.move(speed);
 
 	if(keyIsDown(UP_ARROW))
-		p2.move(-speed);
+		player2.move(-speed);
 	else if(keyIsDown(DOWN_ARROW))
-		p2.move(speed);
+		player2.move(speed);
 }
